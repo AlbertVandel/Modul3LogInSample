@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author alber
  */
-public class Products extends Command {
-    
+public class ViewAllOrders extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-        return "products";
+        return "viewallorders";
     }
+    
 }

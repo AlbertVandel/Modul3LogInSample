@@ -12,10 +12,14 @@
         <title>Customer home page</title>
     </head>
     <body>
+
+
+
         <h1>Hello <%=request.getParameter("email")%> </h1>
         You are now logged in as a customer of our wonderful site.
-                     <form name="login" action="FrontController" method="GET">
-                <a href ="FrontController?command=products">Byg dit Legohus</a> 
-                    </form>
+        <form name="enterorder" action="FrontController" method="Post">
+            <input type="hidden" name="command" value="enterorder">
+            <input type="submit" value="byg dit legohus">
+        </form>
     </body>
 </html>

@@ -13,6 +13,7 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <%=request.getAttribute("orderList") %>
         <form name="vieworder" action="FrontController" method="Post">
             <input type="hidden" name="command" value="vieworder">
             <input type="submit" value="Se ordren">

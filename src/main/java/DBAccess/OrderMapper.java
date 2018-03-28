@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -53,19 +54,26 @@ public class OrderMapper {
             throw new LoginSampleException( ex.getMessage() );
         }
     }
-        public static Order viewAllOrders( int orderId ) throws LoginSampleException {
+        public static ArrayList<Order> viewAllOrders() throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "Select * from Orders where OrderID=?";
+            String SQL = "Select * from Orders";
             PreparedStatement ps = con.prepareStatement( SQL );
-            ps.setInt(1, orderId );
             ResultSet rs = ps.executeQuery();
+            
+            ArrayList<Order> orderList = new ArrayList();
+            
+            while(rs.next()){
+            int orderId = rs.getInt("OrderID");
             int length = rs.getInt("length");
             int width = rs.getInt("width");
             int height = rs.getInt("height");
             int userId = rs.getInt("UserID");
             Order order = new Order(orderId,length,width,height,userId);
-            return order;
+            orderList.add(order);
+            }
+            
+            return orderList;
         } catch ( SQLException | ClassNotFoundException ex ) {
             throw new LoginSampleException( ex.getMessage() );
         }

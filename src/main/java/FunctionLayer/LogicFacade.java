@@ -31,9 +31,8 @@ public class LogicFacade {
         return itemList;        
     }
 
-    public static List<Order> viewAllOrders() throws LoginSampleException{
-        ArrayList<Order> orderList = new ArrayList();
-        
+    public static ArrayList<Order> viewAllOrders() throws LoginSampleException{
+        ArrayList<Order> orderList = OrderMapper.viewAllOrders();
         return orderList;
     }    
 

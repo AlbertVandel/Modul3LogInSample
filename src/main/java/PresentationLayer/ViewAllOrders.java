@@ -5,7 +5,10 @@
  */
 package PresentationLayer;
 
+import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.entity.Order;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,6 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 public class ViewAllOrders extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+        ArrayList<Order> orderList = LogicFacade.viewAllOrders();
+        request.setAttribute("orderList", orderList);
         return "viewallorders";
     }
     

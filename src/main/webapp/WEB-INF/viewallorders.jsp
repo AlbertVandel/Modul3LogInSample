@@ -12,10 +12,16 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <%=request.getAttribute("orderList") %>
+        <h1>List of all orders</h1>
+        <%=request.getAttribute("orderList")%>
         <form name="vieworder" action="FrontController" method="Post">
             <input type="hidden" name="command" value="vieworder">
+            <input type ="number" name ="orderid">Ordrens id</input> 
+            <table style="width:100%">
+                <tr>
+
+                </tr>
+            </table> 
             <input type="submit" value="Se ordren">
         </form>
     </body>

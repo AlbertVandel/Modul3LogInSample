@@ -44,6 +44,7 @@ public class OrderMapper {
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setInt(1, orderId );
             ResultSet rs = ps.executeQuery();
+            rs.next();
             int length = rs.getInt("length");
             int width = rs.getInt("width");
             int height = rs.getInt("height");
